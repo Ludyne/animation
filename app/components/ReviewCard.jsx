@@ -1,12 +1,12 @@
-import React from "react";
-import { cn } from "../lib/utils.jsx";
+"use client";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 
-const Card = ({ img, name, username, body }) => {
+export default function ReviewCard({ img, name, username, body }) {
   return (
     <figure
       className={cn(
-        "relative w-72 overflow-hidden rounded-lg p-px",
+        "relative w-72 overflow-hidden rounded-lg p-px mx-2",
         "bg-gradient-to-b to-[#0C0024] from-[#4C3182]"
       )}
     >
@@ -18,6 +18,7 @@ const Card = ({ img, name, username, body }) => {
             height={32}
             alt=""
             src={img}
+            priority={true}
           />
           <div className="flex flex-col">
             <figcaption className="text-sm font-medium text-white">
@@ -26,10 +27,8 @@ const Card = ({ img, name, username, body }) => {
             <p className="text-xs font-medium text-muted">{username}</p>
           </div>
         </div>
-        <blockquote className="mt-2 text-sm">{body}</blockquote>
+        <blockquote className="mt-2 text-sm text-[#F7F6F9]">{body}</blockquote>
       </div>
     </figure>
   );
-};
-
-export default Card;
+}
